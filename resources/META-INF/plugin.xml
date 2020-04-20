@@ -1,0 +1,35 @@
+<idea-plugin>
+  <id>com.spy.unique.plugin.noButterKnife</id>
+  <name>NoButterKnife</name>
+  <version>1.0</version>
+  <vendor email="1274460520@qq.com" url="404">404</vendor>
+
+  <description>Switch butterknife to findview to get ready for data binding.</description>
+
+  <change-notes>This is the first version, may will be modified.</change-notes>
+
+  <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <depends>com.intellij.modules.platform</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+    <applicationService serviceInterface="com.spy.demo.NoButterKnifeService"
+                        serviceImplementation="com.spy.demo.impl.NoButterKnifeServiceImpl"/>
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+    <action id="NoButterKnife" class="com.spy.demo.InToolsAction" text="NoButterKnife" description="No butterknife">
+      <add-to-group group-id="ToolsMenu" anchor="first"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="alt shift F12"/>
+    </action>
+    <action id="SingleFileAction" class="com.spy.demo.SingleFileAction" text="NoButterKnife" description="to get rid of butter knife">
+      <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+    </action>
+  </actions>
+
+</idea-plugin>
